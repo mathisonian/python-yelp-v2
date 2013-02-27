@@ -1,7 +1,7 @@
 python-yelp-v2
 ==============
 
-A Python wrapper for the Yelp API v2. The structure for this was inspired by the [python-twitter](https://github.com/bear/python-twitter) library.
+A Python wrapper for the Yelp API v2. The structure for this was inspired by the [python-twitter](https://github.com/bear/python-twitter) library, and some internal methods are reused.
 
 
 Usage
