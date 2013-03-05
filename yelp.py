@@ -319,3 +319,43 @@ class Location(object):
                         neighborhoods=data.get("neighborhoods", None),
                         postal_code=data.get("postal_code", None),
                         state_code=data.get("state_code", None))
+
+
+class Deal(object):
+    def __init__(self,
+                 id=None,
+                 title=None,
+                 url=None,
+                 currency_code=None,
+                 time_start=None,
+                 time_end=None,
+                 is_popular=None,
+                 what_you_get=None,
+                 important_restrictions=None,
+                 additional_restrictions=None,
+                 options=None,):
+    self.id = id
+    self.title = title
+    self.url = url
+    self.currency_code = currency_code
+    self.time_start = time_start
+    self.time_end = time_end
+    self.is_popular = is_popular
+    self.what_you_get = what_you_get
+    self.important_restrictions = important_restrictions
+    self.additional_restrictions = additional_restrictions
+    self.options = options
+
+    @staticmethod
+    def NewFromJsonDict(data):
+      return Deal(id=data.get("id", None),
+                  title=data.get("title", None),
+                  url=data.get("url", None),
+                  currency_code=data.get("currency_code", None),
+                  time_start=data.get("time_start", None),
+                  time_end=data.get("time_end", None),
+                  is_popular=data.get("is_popular", None),
+                  what_you_get=data.get("what_you_get", None),
+                  important_restrictions=data.get("what_you_get", None),
+                  additional_restrictions=data.get("additional_restrictions", None),
+                  options=data.get("options"))
