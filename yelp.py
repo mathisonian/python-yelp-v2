@@ -333,7 +333,7 @@ class Deal(object):
                  what_you_get=None,
                  important_restrictions=None,
                  additional_restrictions=None,
-                 options=None,):
+                 options=None):
     self.id = id
     self.title = title
     self.url = url
@@ -358,4 +358,4 @@ class Deal(object):
                   what_you_get=data.get("what_you_get", None),
                   important_restrictions=data.get("what_you_get", None),
                   additional_restrictions=data.get("additional_restrictions", None),
-                  options=data.get("options"))
+                  options=data.get("options", []))
