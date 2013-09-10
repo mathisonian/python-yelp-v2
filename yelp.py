@@ -334,17 +334,17 @@ class Deal(object):
                  important_restrictions=None,
                  additional_restrictions=None,
                  options=None):
-    self.id = id
-    self.title = title
-    self.url = url
-    self.currency_code = currency_code
-    self.time_start = time_start
-    self.time_end = time_end
-    self.is_popular = is_popular
-    self.what_you_get = what_you_get
-    self.important_restrictions = important_restrictions
-    self.additional_restrictions = additional_restrictions
-    self.options = options
+        self.id = id
+        self.title = title
+        self.url = url
+        self.currency_code = currency_code
+        self.time_start = time_start
+        self.time_end = time_end
+        self.is_popular = is_popular
+        self.what_you_get = what_you_get
+        self.important_restrictions = important_restrictions
+        self.additional_restrictions = additional_restrictions
+        self.options = options
 
     @staticmethod
     def NewFromJsonDict(data):
