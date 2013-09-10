@@ -91,6 +91,20 @@ class Api(object):
         response = json.loads(response)
         return Business.NewFromJsonDict(response)
 
+    def Search(self, 
+               #term=None, 
+               #limit=None, 
+               #offset=None, 
+               #sort=None,
+               #category_filter=None,
+               #radius_filter=None,
+               #deals_filter=None,
+               #location=None,
+               **kwargs):
+        response = self._FetchUrl(url="http://" + self.host + '/v2/search?' +urllib.urlencode(kwargs))
+        response = json.loads(response)
+        return SearchResultSet.NewFromJsonDict(response)
+
     def _FetchUrl(self,
                   url,
                   post_data=None,
@@ -167,6 +181,24 @@ class Api(object):
         # Always return the latest version
         return response
 
+class SearchResultSet(object):
+
+    """ TODO make iterable, subscriptable """
+
+    def __init__(self,
+                 region=None,
+                 total=None,
+                 businesses=None):
+        self.region = region
+        self.total = total
+        self.businesses = businesses
+
+    @staticmethod
+    def NewFromJsonDict(data):
+        return SearchResultSet(region=data.get('region', None), 
+                               total=data.get('total', 0),
+                               businesses=map(Business.NewFromJsonDict, data.get('businesses', [])))
+        
 
 class Business(object):
 
@@ -231,7 +263,7 @@ class Business(object):
                         rating_img_large=data.get("rating_img_large", None),
                         rating_img_small=data.get("rating_img_small", None),
                         review_count=data.get("review_count", None),
-                        reviews=[Review.NewFromJsonDict(x) for x in data.get("reviews", None)],
+                        reviews=map(Review.NewFromJsonDict, data.get('reviews', [])),
                         snippet_image_url=data.get("snippet_image_url", None),
                         snippet_text=data.get("snippet_text", None),
                         url=data.get("url", None))
