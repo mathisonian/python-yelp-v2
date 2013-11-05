@@ -7,6 +7,30 @@ A Python wrapper for the Yelp API v2. The structure for this was inspired by the
 Usage
 -----
 
+You must have yelp oauth credentials: http://www.yelp.com/developers/getting_started
+
+```python
+import yelp
+
+yelp_api = yelp.API(consumer_key=MY_CONSUMER_KEY,
+                    consumer_secret=MY_CONSUMER_SECRET,
+                    access_token_key=MY_ACCESS_TOKEN,
+                    access_token_secret=MY_ACCESS_SECRET)
+
+```
+
+### Searching
+
+```python
+search_results = yelp_api.Search(term="my search term")
+```
+
+### Getting business info
+
+```python
+business = yelp_api.GetBusiness('business_id')
+```
+
 
 Todo
 ----
