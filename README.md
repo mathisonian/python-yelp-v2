@@ -4,6 +4,15 @@ python-yelp-v2
 A Python wrapper for the Yelp API v2. The structure for this was inspired by the [python-twitter](https://github.com/bear/python-twitter) library, and some internal methods are reused.
 
 
+Installation
+----
+
+From [pypi](https://pypi.python.org/pypi/python-yelp-v2)
+
+```sh
+pip install python-yelp-v2
+```
+
 Usage
 -----
 
