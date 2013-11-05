@@ -11,9 +11,8 @@ Usage
 Todo
 ----
 
-* Create classes for deals, categories.
+* Create classes for categories.
 * Improve the location class
-* Add search
 * Add usage documentation
 * Add setup.py
 
