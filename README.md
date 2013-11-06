@@ -55,8 +55,6 @@ Todo
 
 * Create classes for categories.
 * Improve the location class
-* Add usage documentation
-* Add setup.py
 
 Notes
 -----
