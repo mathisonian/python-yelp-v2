@@ -32,13 +32,22 @@ yelp_api = yelp.API(consumer_key=MY_CONSUMER_KEY,
 
 ```python
 search_results = yelp_api.Search(term="my search term")
+for business in search_results.businesses:
+    print business.name
 ```
+
+See the exact attributes available on the [search result set](https://github.com/mathisonian/python-yelp-v2/blob/master/yelp.py#L184)
 
 ### Getting business info
 
 ```python
-business = yelp_api.GetBusiness('business_id')
+business = yelp_api.GetBusiness('post-no-bills-brooklyn')
+print business.name
 ```
+
+The [business class](https://github.com/mathisonian/python-yelp-v2/blob/master/yelp.py#L203) lists all of the attributes that are 
+available for each business the API returns.
+
 
 
 Todo
