@@ -4,6 +4,15 @@ python-yelp-v2
 A Python wrapper for the Yelp API v2. The structure for this was inspired by the [python-twitter](https://github.com/bear/python-twitter) library, and some internal methods are reused.
 
 
+Installation
+----
+
+From [pypi](https://pypi.python.org/pypi/python-yelp-v2)
+
+```sh
+pip install python-yelp-v2
+```
+
 Usage
 -----
 
@@ -23,13 +32,22 @@ yelp_api = yelp.API(consumer_key=MY_CONSUMER_KEY,
 
 ```python
 search_results = yelp_api.Search(term="my search term")
+for business in search_results.businesses:
+    print business.name
 ```
+
+See the exact attributes available on the [search result set](https://github.com/mathisonian/python-yelp-v2/blob/master/yelp.py#L184)
 
 ### Getting business info
 
 ```python
-business = yelp_api.GetBusiness('business_id')
+business = yelp_api.GetBusiness('post-no-bills-brooklyn')
+print business.name
 ```
+
+The [business class](https://github.com/mathisonian/python-yelp-v2/blob/master/yelp.py#L203) lists all of the attributes that are 
+available for each business the API returns.
+
 
 
 Todo
@@ -37,8 +55,6 @@ Todo
 
 * Create classes for categories.
 * Improve the location class
-* Add usage documentation
-* Add setup.py
 
 Notes
 -----
