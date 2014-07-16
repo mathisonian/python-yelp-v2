@@ -21,7 +21,7 @@ You must have yelp oauth credentials: http://www.yelp.com/developers/getting_sta
 ```python
 import yelp
 
-yelp_api = yelp.API(consumer_key=MY_CONSUMER_KEY,
+yelp_api = yelp.Api(consumer_key=MY_CONSUMER_KEY,
                     consumer_secret=MY_CONSUMER_SECRET,
                     access_token_key=MY_ACCESS_TOKEN,
                     access_token_secret=MY_ACCESS_SECRET)
