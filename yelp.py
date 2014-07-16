@@ -10,7 +10,7 @@ __email__ = "github@mathisonian.com"
 
 __copyright__ = "Copyright 2012, 2013, Pontiflex, Inc."
 __license__ = "APACHE 2.0"
-__version__ = "0.0.1"
+__version__ = "0.4.0"
 __status__ = "Development"
 
 
@@ -19,7 +19,7 @@ import json
 import urllib
 import urllib2
 import time
-from filecache import FileCache
+from yelp.filecache import FileCache
 
 
 # A singleton representing a lazily instantiated FileCache.
