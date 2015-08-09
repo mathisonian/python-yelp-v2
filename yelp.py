@@ -103,6 +103,10 @@ class Api(object):
                #deals_filter=None,
                #location=None,
                **kwargs):
+
+        if not kwargs.get('location'):
+            raise Exception('Location parameter is required when searching. e.g. client.Search(term="restaurant", location="detroit")')
+
         response = self._FetchUrl(url="http://" + self.host + '/v2/search?' +urllib.urlencode(kwargs))
         response = json.loads(response)
         if "error" in response:
