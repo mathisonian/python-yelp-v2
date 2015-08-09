@@ -8,9 +8,9 @@ __author__ = "Matthew Conlen"
 __maintainer__ = "Matthew Conlen"
 __email__ = "github@mathisonian.com"
 
-__copyright__ = "Copyright 2012, 2013, Pontiflex, Inc."
+__copyright__ = "Copyright 2012, 2013, Mattew Conlen"
 __license__ = "APACHE 2.0"
-__version__ = "0.5.2"
+__version__ = "0.5.5"
 __status__ = "Development"
 
 

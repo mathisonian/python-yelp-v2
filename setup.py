@@ -4,7 +4,7 @@
 '''The setup and build script for the python-yelp-v2 library.'''
 
 __author__ = 'github@mathisonian.com'
-__version__ = '0.5.3'
+__version__ = '0.5.5'
 
 
 # The base package metadata to be used by both distutils and setuptools
@@ -15,7 +15,7 @@ METADATA = dict(
   author='Matthew Conlen',
   author_email='github@mathisonian.com',
   description='A Python wrapper around the Yelp API v2',
-  license='Apache License 2.0',
+  license='MIT',
   url='https://github.com/mathisonian/python-yelp-v2',
   keywords='yelp api',
 )
