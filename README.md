@@ -31,7 +31,7 @@ yelp_api = yelp.Api(consumer_key=MY_CONSUMER_KEY,
 ### Searching
 
 ```python
-search_results = yelp_api.Search(term="my search term")
+search_results = yelp_api.Search(term="my search term", location="my location") # location and search term are required
 for business in search_results.businesses:
     print business.name
 ```
