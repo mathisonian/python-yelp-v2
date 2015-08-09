@@ -89,6 +89,8 @@ class Api(object):
 
         response = self._FetchUrl(url=url)
         response = json.loads(response)
+        if "error" in response:
+            raise Exception(response["error"])
         return Business.NewFromJsonDict(response)
 
     def Search(self, 
@@ -103,6 +105,8 @@ class Api(object):
                **kwargs):
         response = self._FetchUrl(url="http://" + self.host + '/v2/search?' +urllib.urlencode(kwargs))
         response = json.loads(response)
+        if "error" in response:
+            raise Exception(response["error"])
         return SearchResultSet.NewFromJsonDict(response)
 
     def _FetchUrl(self,
@@ -168,8 +172,6 @@ class Api(object):
             try:
                 conn = urllib.urlopen(signed_url, None)
                 response = conn.read()
-                if "error" in response:
-                    raise Exception(response["error"])
                 self._cache.Set(key, response)
             except urllib2.HTTPError, error:
                 print "Error accessing yelp api " + error.read()
