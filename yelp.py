@@ -29,6 +29,18 @@ DEFAULT_CACHE = object()
 DEFAULT_CACHE_TIMEOUT = 60
 
 
+def clean_url_component(s):
+    if isinstance(s, unicode):
+        # hashlib.md5() in FileCache does not accept unicode objects.
+        s = s.encode('utf-8')
+    try:
+        s.decode('ascii')
+    except UnicodeError:
+        # urllib only accepts ASCII in urls.
+        s = urllib.quote(s)
+    return s
+
+
 class Api(object):
     '''
     A python interface to the yelp API v2
@@ -85,6 +97,7 @@ class Api(object):
             self._cache = cache
 
     def GetBusiness(self, id):
+        id = clean_url_component(id)
         url = "http://" + self.host + "/v2/business/" + id
 
         response = self._FetchUrl(url=url)
@@ -93,10 +106,10 @@ class Api(object):
             raise Exception(response["error"])
         return Business.NewFromJsonDict(response)
 
-    def Search(self, 
-               #term=None, 
-               #limit=None, 
-               #offset=None, 
+    def Search(self,
+               #term=None,
+               #limit=None,
+               #offset=None,
                #sort=None,
                #category_filter=None,
                #radius_filter=None,
@@ -175,12 +188,14 @@ class Api(object):
             # Connect
             try:
                 conn = urllib.urlopen(signed_url, None)
-                response = conn.read()
-                self._cache.Set(key, response)
             except urllib2.HTTPError, error:
-                print "Error accessing yelp api " + error.read()
-            finally:
-                conn.close()
+                raise Exception("Error accessing yelp api " + error.read())
+            else:
+                try:
+                    response = conn.read()
+                    self._cache.Set(key, response)
+                finally:
+                    conn.close()
         else:
             response = self._cache.Get(key)
 
@@ -201,10 +216,10 @@ class SearchResultSet(object):
 
     @staticmethod
     def NewFromJsonDict(data):
-        return SearchResultSet(region=data.get('region', None), 
+        return SearchResultSet(region=data.get('region', None),
                                total=data.get('total', 0),
                                businesses=map(Business.NewFromJsonDict, data.get('businesses', [])))
-        
+
 
 class Business(object):
 
