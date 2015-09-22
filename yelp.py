@@ -10,7 +10,7 @@ __email__ = "github@mathisonian.com"
 
 __copyright__ = "Copyright 2012, 2013, Mattew Conlen"
 __license__ = "APACHE 2.0"
-__version__ = "0.5.6"
+__version__ = "0.5.7"
 __status__ = "Development"
 
 
