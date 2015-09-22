@@ -1,8 +1,6 @@
 import pytest
 import yelp
 
-print 'wtf'
-
 class TestYelpAPIClient(object):
 
 
